@@ -17,7 +17,9 @@ import com.example.calculator.databinding.FragmentSecondBinding;
 public class SecondFragment extends Fragment {
     private ViewViewModel viewViewModel;
     private FragmentSecondBinding binding;
-    private String input="";
+    private Integer int1, int2;
+    private Character op;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -25,21 +27,42 @@ public class SecondFragment extends Fragment {
     ) {
         viewViewModel = new ViewModelProvider(requireActivity()).get(ViewViewModel.class);
         binding = FragmentSecondBinding.inflate(inflater, container, false);
-        TextView tv_output = binding.textviewSecond;
-        TextView tv_result = binding.textviewResult;
+        TextView tv_num1 = binding.textViewNum1;
+        TextView tv_num2 = binding.textViewNum2;
+        TextView tv_op = binding.textViewOp;
 
-        viewViewModel.getLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+
+        viewViewModel.getNum1().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
-            public void onChanged(String s) {
-                tv_output.setText(s);
-                input = s;
+            public void onChanged(Integer integer) {
+                tv_num1.setText(integer.toString());
+                int1 = integer;
 
-                if(s.endsWith("=")){
+            }
+        });
+        viewViewModel.getNum2().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                tv_num2.setText(integer.toString());
+                int2 = integer;
+            }
+        });
+        viewViewModel.getOperator(getViewLifecycleOwner(),new Observer<Character>(){
+            @Override
+            public void onChanged(Character character) {
+                tv_op.setText(character);
 
-                }
+                if(character == '=' && op!= null && int1 !=null && int2 != null )
+                    compute();
+                else
+                    op = character;
             }
         });
         return binding.getRoot();
+
+    }
+
+    private void compute() {
 
     }
 
@@ -54,5 +77,6 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 
 }

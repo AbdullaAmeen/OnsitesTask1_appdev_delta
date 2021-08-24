@@ -20,7 +20,6 @@ public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
     private ViewViewModel viewViewModel;
-    Button bt0;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -32,11 +31,9 @@ public class FirstFragment extends Fragment {
 
             Button normalButton = (Button) v;
             Log.v("button pressed", normalButton.getText().toString());
-            viewViewModel.getLiveData().setValue(viewViewModel.getLiveData().getValue().concat(normalButton.getText().toString()));
+            viewViewModel.getNum1().setValue(Integer.getInteger(normalButton.getText().toString()));
         };
-        Button bt0 = binding.bt0;
-        binding.bt.setOnClickListener(normalBtCLickListener);
-        bt0.setOnClickListener(normalBtCLickListener);
+        binding.bt0.setOnClickListener(normalBtCLickListener);
         binding.bt1.setOnClickListener(normalBtCLickListener);
         binding.bt2.setOnClickListener(normalBtCLickListener);
         binding.bt3.setOnClickListener(normalBtCLickListener);
@@ -47,8 +44,6 @@ public class FirstFragment extends Fragment {
         binding.bt8.setOnClickListener(normalBtCLickListener);
         binding.bt9.setOnClickListener(normalBtCLickListener);
         binding.btAdd.setOnClickListener(normalBtCLickListener);
-        binding.btBracketclose.setOnClickListener(normalBtCLickListener);
-        binding.btBracketopen.setOnClickListener(normalBtCLickListener);
         binding.btDivide.setOnClickListener(normalBtCLickListener);
         binding.btMultiply.setOnClickListener(normalBtCLickListener);
         binding.btSubtract.setOnClickListener(normalBtCLickListener);
