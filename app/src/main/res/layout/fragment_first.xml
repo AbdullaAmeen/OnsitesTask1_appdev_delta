@@ -7,7 +7,7 @@
     tools:context=".FirstFragment">
 
     <Button
-        android:id="@+id/bt_clear"
+        android:id="@+id/bt_backSpace"
         android:layout_width="85dp"
         android:layout_height="92dp"
         android:text="Back Space"
@@ -25,14 +25,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bt_divide"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bt_clear"
+        app:layout_constraintStart_toEndOf="@+id/bt_backSpace"
         app:layout_constraintTop_toBottomOf="@+id/bt_8" />
 
     <Button
         android:id="@+id/bt_compute"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="85dp"
         android:layout_height="92dp"
+        android:fontFamily="sans-serif-black"
         android:text="="
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -125,7 +128,7 @@
         app:layout_constraintEnd_toStartOf="@+id/bt_3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_1"
-        app:layout_constraintTop_toBottomOf="@+id/bt_c" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_nextNum" />
 
     <Button
         android:id="@+id/bt_3"
@@ -136,7 +139,7 @@
         app:layout_constraintEnd_toStartOf="@+id/bt_multiply"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_2"
-        app:layout_constraintTop_toBottomOf="@+id/bt_c" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_nextNum" />
 
     <Button
         android:id="@+id/bt_multiply"
@@ -147,17 +150,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_3"
-        app:layout_constraintTop_toBottomOf="@+id/bt_c" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_nextNum" />
 
     <Button
-        android:id="@+id/bt_c"
-        android:layout_width="150dp"
-        android:layout_height="87dp"
-        android:layout_marginTop="4dp"
+        android:id="@+id/bt_nextNum"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
         android:text="Next Number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_clearCell"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_clearall"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:padding="15dp"
+        android:paddingLeft="3dp"
+        android:text="CLEAR"
+        app:layout_constraintBottom_toTopOf="@+id/bt_1"
+        app:layout_constraintEnd_toStartOf="@+id/bt_clearCell"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_clearCell"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:padding="15dp"
+        android:paddingLeft="3dp"
+        android:text="CLEAR CELL"
+        app:layout_constraintBottom_toTopOf="@+id/bt_2"
+        app:layout_constraintEnd_toStartOf="@+id/bt_nextNum"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_clearall"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -165,7 +194,7 @@
         android:layout_width="85dp"
         android:layout_height="92dp"
         android:text="7"
-        app:layout_constraintBottom_toTopOf="@+id/bt_clear"
+        app:layout_constraintBottom_toTopOf="@+id/bt_backSpace"
         app:layout_constraintEnd_toStartOf="@+id/bt_8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,7 +209,7 @@
         app:layout_constraintEnd_toStartOf="@+id/bt_2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_c" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_nextNum" />
 
     <Button
         android:id="@+id/bt_4"
